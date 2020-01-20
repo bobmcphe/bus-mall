@@ -1,8 +1,6 @@
 'use strict';
 
 var pictureParent = document.getElementById('pictures');
-
-// var adImagesTag = document.getElementById('adImages');
 var imageLeft = document.getElementById('picLeft');
 var imageCenter = document.getElementById('picCenter');
 var imageRight = document.getElementById('picRight');
@@ -11,8 +9,6 @@ var imageRight = document.getElementById('picRight');
 var leftIndex = null;
 var rightIndex = null;
 var centerIndex = null;
-
-// var picssArray = []
 
 var imageVote = 0;
 var totalRounds = 5;
@@ -47,36 +43,35 @@ var handleClickOnImage = function(event){
         // console.log('made into the first!!');
         
         imageVote++;
-        // need to increment imageVotes clicked by one
+        // need to increment imageVote by one
         if(imageClicked === 'picLeft'){
         // do logic to incrament the number
         AdImage.allImages[leftIndex].clicked++;
-        console.log('left pic selected');
+        // console.log('left pic selected');
 
         } else if(imageClicked === 'picRight'){
         AdImage.allImages[rightIndex].clicked++;
-        console.log('right pic selected');
+        // console.log('right pic selected');
         } else if(imageClicked === 'picCenter'){
             AdImage.allImages[centerIndex].clicked++;
-            console.log('center pic selected');
+            // console.log('center pic selected');
             }
 
     } else{
-        alert('you didn\'t select an image');
+        alert('You didn\'t select an image. ');
     } 
     
     console.log(AdImage.allImages[leftIndex]);
     console.log(AdImage.allImages[rightIndex]);
     
-    if(imageVote === 5){
-            // remove
+    if(imageVote === 10){
             pictureParent.removeEventListener('click', handleClickOnImage);
-            console.log("you completed the voting")
+            //console.log("you completed the voting")
             // output to the browser the results
             
             for(var i=0; i < AdImage.allImages.length; i++) {
             var pix = AdImage.allImages[i];
-            console.log(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);
+            // console.log(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);
             var node = document.createElement("li");                 // Create a <li> node ---taken from w3 schools
             var textnode = document.createTextNode(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);         // Create a text node
             node.appendChild(textnode);                              // Append the text to <li>
@@ -93,50 +88,42 @@ function renderAdImages(){
     leftIndex = randomPic();
     rightIndex = randomPic();
     centerIndex = randomPic();
-    } while(leftIndex === rightIndex){
+
+    } while(leftIndex === rightIndex || leftIndex === centerIndex || rightIndex === centerIndex){
         imageLeft.src = AdImage.allImages[leftIndex].image;
         imageRight.src = AdImage.allImages[rightIndex].image;
         imageCenter.src = AdImage.allImages[centerIndex].image;
 
+        }
+        AdImage.allImages[leftIndex].views++;
+        AdImage.allImages[rightIndex].views++;
+        AdImage.allImages[centerIndex].views++;
     }
-  AdImage.allImages[leftIndex].views++;
-  AdImage.allImages[rightIndex].views++;
-  AdImage.allImages[centerIndex].views++;
-}
-
-
-
-
-
-
-    
-
 
 // Instantiations------------------------------------
 AdImage.allImages = [];
-// var thirdGoat = new Goat('third goat', "https://www.aces.edu/wp-content/uploads/2018/07/Scapie_Health.jpg");
-//we actually don't need the above instantiation, but can do as follows:
 
-new AdImage('first pic', "img/banana.jpg");
-new AdImage('second pic', "img/bathroom.jpg");
-new AdImage('third pic', "img/boots.jpg");
-new AdImage('fourth pic', "img/breakfast.jpg");
-new AdImage('fifth pic', "img/Bubblegum.jpg");
-new AdImage('seventh pic', "img/chair.jpg");
-new AdImage('eighth pic', "img/cthulhu.jpg");
-new AdImage('ninth pic', "img/dog-duck.jpg");
-new AdImage('tenth pic', "img/dragon.jpg");
-new AdImage('eleventh pic', "img/pen.jpg");
-new AdImage('eleventh pic', "img/pet-sweep.jpg");
-new AdImage('eleventh pic', "img/scissors.jpg");
-new AdImage('eleventh pic', "img/shark.jpg");
-new AdImage('eleventh pic', "img/sweep.png");
-new AdImage('eleventh pic', "img/tauntaun.jpg");
-new AdImage('eleventh pic', "img/unicorn.jpg");
-new AdImage('eleventh pic', "img/usb.gif");
-new AdImage('eleventh pic', "img/water-can.jpg");
-new AdImage('eleventh pic', "img/wine-glass.jpg");
-new AdImage('twelfth pic', "img/bag.jpg");
+new AdImage('banana pic', "img/banana.jpg");
+new AdImage('bathroom pic', "img/bathroom.jpg");
+new AdImage('boots pic', "img/boots.jpg");
+new AdImage('breakfast pic', "img/breakfast.jpg");
+new AdImage('bubblegum pic', "img/Bubblegum.jpg");
+new AdImage('wine-glass pic', "img/wine-glass.jpg");
+new AdImage('chair pic', "img/chair.jpg");
+new AdImage('cthulhu pic', "img/cthulhu.jpg");
+new AdImage('dog-duck pic', "img/dog-duck.jpg");
+new AdImage('dragon pic', "img/dragon.jpg");
+new AdImage('pen pic', "img/pen.jpg");
+new AdImage('pet sweep pic', "img/pet-sweep.jpg");
+new AdImage('scissors pic', "img/scissors.jpg");
+new AdImage('shark pic', "img/shark.jpg");
+new AdImage('sweep pic', "img/sweep.png");
+new AdImage('tauntaun pic', "img/tauntaun.jpg");
+new AdImage('unicorn pic', "img/unicorn.jpg");
+new AdImage('usb pic', "img/usb.gif");
+new AdImage('water-can pic', "img/water-can.jpg");
+
+new AdImage('bag pic', "img/bag.jpg");
 
 
 renderAdImages();
