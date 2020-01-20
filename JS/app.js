@@ -2,7 +2,7 @@
 
 var pictureParent = document.getElementById('pictures');
 
-var adImagesTag = document.getElementById('adImages');
+// var adImagesTag = document.getElementById('adImages');
 var imageLeft = document.getElementById('picLeft');
 var imageCenter = document.getElementById('picCenter');
 var imageRight = document.getElementById('picRight');
@@ -15,7 +15,7 @@ var centerIndex = null;
 // var picssArray = []
 
 var imageVote = 0;
-var totalRounds = 10;
+var totalRounds = 5;
 
 //My constructor function--------------------------------------------------------
 function AdImage(name, image){
@@ -70,7 +70,7 @@ var handleClickOnImage = function(event){
     
     if(imageVote === 5){
             // remove
-            adImagesTag.removeEventListener('click', handleClickOnImage);
+            pictureParent.removeEventListener('click', handleClickOnImage);
             console.log("you completed the voting")
             // output to the browser the results
             
@@ -81,7 +81,6 @@ var handleClickOnImage = function(event){
                 } else{
                     renderAdImages();
                 }
-
     }
 //closing comment - Create-picture-clicking function. Must be defined before our event listener
 
@@ -90,12 +89,12 @@ function renderAdImages(){
     leftIndex = randomPic();
     rightIndex = randomPic();
     centerIndex = randomPic();
-  } while(leftIndex === rightIndex){
-    imageLeft.src = AdImage.allImages[leftIndex].image;
-    imageRight.src = AdImage.allImages[rightIndex].image;
-    imageCenter.src = AdImage.allImages[centerIndex].image;
+    } while(leftIndex === rightIndex){
+        imageLeft.src = AdImage.allImages[leftIndex].image;
+        imageRight.src = AdImage.allImages[rightIndex].image;
+        imageCenter.src = AdImage.allImages[centerIndex].image;
 
-  }
+    }
   AdImage.allImages[leftIndex].views++;
   AdImage.allImages[rightIndex].views++;
   AdImage.allImages[centerIndex].views++;
@@ -127,7 +126,6 @@ new AdImage('eleventh pic', "img/usb.gif");
 new AdImage('eleventh pic', "img/water-can.jpg");
 new AdImage('eleventh pic', "img/wine-glass.jpg");
 new AdImage('twelfth pic', "img/bag.jpg");
-
 
 
 renderAdImages();

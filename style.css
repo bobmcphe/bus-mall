@@ -7,3 +7,7 @@ h1 {
     width: 400px;
     align-self: 0 auto;
 }
+
+#table {
+    float: left;
+}
