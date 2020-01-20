@@ -43,21 +43,23 @@ var handleClickOnImage = function(event){
     console.log(event.target.id, 'inside handle click');
     var imageClicked = event.target.id;
 
-    if(imageClicked === 'picLeft' || imageClicked === 'picRight'){
-        console.log('made into the first!!');
+    if(imageClicked === 'picLeft' || imageClicked === 'picRight' || imageClicked === 'picCenter'){
+        // console.log('made into the first!!');
         
         imageVote++;
-        // need to incrament goat clicked by one
+        // need to increment imageVotes clicked by one
         if(imageClicked === 'picLeft'){
         // do logic to incrament the number
         AdImage.allImages[leftIndex].clicked++;
-        console.log('you made it here left');
+        console.log('left pic selected');
 
         } else if(imageClicked === 'picRight'){
         AdImage.allImages[rightIndex].clicked++;
-        console.log('you made it here right');
-        }
-
+        console.log('right pic selected');
+        } else if(imageClicked === 'picCenter'){
+            AdImage.allImages[centerIndex].clicked++;
+            console.log('center pic selected');
+            }
 
     } else{
         alert('you didn\'t select an image');
@@ -73,8 +75,8 @@ var handleClickOnImage = function(event){
             // output to the browser the results
             
             for(var i=0; i < AdImage.allImages.length; i++) {
-            var X = AdImage.allImages[i];
-            console.log(`${AdImage.name} received ${AdImage.clicked} votes with ${AdImage.views} views`);
+            var pix = AdImage.allImages[i];
+            console.log(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);
             }
                 } else{
                     renderAdImages();
@@ -87,12 +89,16 @@ function renderAdImages(){
   do{
     leftIndex = randomPic();
     rightIndex = randomPic();
+    centerIndex = randomPic();
   } while(leftIndex === rightIndex){
     imageLeft.src = AdImage.allImages[leftIndex].image;
     imageRight.src = AdImage.allImages[rightIndex].image;
+    imageCenter.src = AdImage.allImages[centerIndex].image;
+
   }
   AdImage.allImages[leftIndex].views++;
   AdImage.allImages[rightIndex].views++;
+  AdImage.allImages[centerIndex].views++;
 }
 
 
