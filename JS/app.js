@@ -102,14 +102,14 @@ function renderAdImages(){
 }
 
 
-
-
-
 // Instantiations------------------------------------
 AdImage.allImages = [];
 // var thirdGoat = new Goat('third goat', "https://www.aces.edu/wp-content/uploads/2018/07/Scapie_Health.jpg");
 //we actually don't need the above instantiation, but can do as follows:
 
+new AdImage('first pic', "img/banana.jpg");
+new AdImage('second pic', "img/bathroom.jpg");
+new AdImage('third pic', "img/boots.jpg");
 new AdImage('fourth pic', "img/breakfast.jpg");
 new AdImage('fifth pic', "img/Bubblegum.jpg");
 new AdImage('seventh pic', "img/chair.jpg");
@@ -117,6 +117,18 @@ new AdImage('eighth pic', "img/cthulhu.jpg");
 new AdImage('ninth pic', "img/dog-duck.jpg");
 new AdImage('tenth pic', "img/dragon.jpg");
 new AdImage('eleventh pic', "img/pen.jpg");
+new AdImage('eleventh pic', "img/pet-sweep.jpg");
+new AdImage('eleventh pic', "img/scissors.jpg");
+new AdImage('eleventh pic', "img/shark.jpg");
+new AdImage('eleventh pic', "img/sweep.png");
+new AdImage('eleventh pic', "img/tauntaun.jpg");
+new AdImage('eleventh pic', "img/unicorn.jpg");
+new AdImage('eleventh pic', "img/usb.gif");
+new AdImage('eleventh pic', "img/water-can.jpg");
+new AdImage('eleventh pic', "img/wine-glass.jpg");
+new AdImage('twelfth pic', "img/bag.jpg");
+
+
 
 renderAdImages();
 
