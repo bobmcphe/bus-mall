@@ -1,6 +1,7 @@
 img {
-    height: 350px;
-    width: 350px;
+    height: 250px;
+    width: 250px;
+    display: inline-block;
 }
 
 h1 {
@@ -8,6 +9,7 @@ h1 {
     align-self: 0 auto;
 }
 
-#table {
+ul {
     float: left;
 }
+

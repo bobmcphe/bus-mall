@@ -77,6 +77,10 @@ var handleClickOnImage = function(event){
             for(var i=0; i < AdImage.allImages.length; i++) {
             var pix = AdImage.allImages[i];
             console.log(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);
+            var node = document.createElement("li");                 // Create a <li> node ---taken from w3 schools
+            var textnode = document.createTextNode(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);         // Create a text node
+            node.appendChild(textnode);                              // Append the text to <li>
+            document.getElementById("outputList").appendChild(node);     // Append <li> to <ul> with id="myList"
             }
                 } else{
                     renderAdImages();
@@ -99,6 +103,13 @@ function renderAdImages(){
   AdImage.allImages[rightIndex].views++;
   AdImage.allImages[centerIndex].views++;
 }
+
+
+
+
+
+
+    
 
 
 // Instantiations------------------------------------
@@ -131,3 +142,4 @@ new AdImage('twelfth pic', "img/bag.jpg");
 renderAdImages();
 
 pictureParent.addEventListener('click', handleClickOnImage);
+
