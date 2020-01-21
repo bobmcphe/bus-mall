@@ -138,8 +138,19 @@ new AdImage('bag pic', "img/bag.jpg");
 //==================================================
 //===================CHART===========================
 //===================================================
-var labelData = [];
-var chartData = [];
+
+function renderChart() {
+
+    var labelData = [];
+    var chartData = [];
+
+  for (var i= 0; i< AdImage.allImages.length; i++){
+    labelData.push(AdImage.allImages[i].name);
+    chartData.push(AdImage.allImages[i].clicked);
+    
+      }
+    //   var ctx = document.getElementById('whiteboard').getContext('2d');
+    
 
 var ctx = document.getElementById('whiteboard').getContext('2d');
 var myChart = new Chart(ctx, {
@@ -180,21 +191,14 @@ var myChart = new Chart(ctx, {
     }
     
 });
-
+}
 
 //create click data and passes that into a chart.JS constructor
 var button = document.getElementById('button');
 button.addEventListener('click', renderChart);
+var ctx = document.getElementById('whiteboard').getContext('2d');
 
-function renderChart() {
 
-  for (var i= 0; i< AdImage.allImages.length; i++){
-    labelData.push(AdImage.allImages[i].name);
-    chartData.push(AdImage.allImages[i].clicked);
-    
-      }
-      var ctx = document.getElementById('whiteboard').getContext('2d');
-    }
 
 
 //======================EXECUTABLE CODE=============================================
