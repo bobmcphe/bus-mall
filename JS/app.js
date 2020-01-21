@@ -69,10 +69,10 @@ var handleClickOnImage = function(event){ //this an anonymous function attached 
             for(var i=0; i < AdImage.allImages.length; i++) {
             var pix = AdImage.allImages[i];
             // console.log(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);
-            var node = document.createElement("li");                 // Create a <li> node ---taken from w3 schools
-            var textnode = document.createTextNode(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);         // Create a text node
-            node.appendChild(textnode);                              // Append the text to <li>
-            document.getElementById("outputList").appendChild(node);     // Append <li> to <ul> with id="myList"
+            // var node = document.createElement("li");                 // Create a <li> node ---taken from w3 schools
+            // var textnode = document.createTextNode(`${pix.name} received ${pix.clicked} votes with ${pix.views} views`);         // Create a text node
+            // node.appendChild(textnode);                              // Append the text to <li>
+            // document.getElementById("outputList").appendChild(node);     // Append <li> to <ul> with id="myList"
             }
                 } else{
                     renderAdImages();
@@ -143,10 +143,12 @@ function renderChart() {
 
     var labelData = [];
     var chartData = [];
+    var viewData = [];
 
   for (var i= 0; i< AdImage.allImages.length; i++){
     labelData.push(AdImage.allImages[i].name);
     chartData.push(AdImage.allImages[i].clicked);
+    viewData.push(AdImage.allImages[i].views);
     
       }
     //   var ctx = document.getElementById('whiteboard').getContext('2d');
@@ -160,6 +162,28 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: '# of Votes',
             data: chartData,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                // 'rgba(54, 162, 235, 0.2)',
+                // 'rgba(255, 206, 86, 0.2)',
+                // 'rgba(75, 192, 192, 0.2)',
+                // 'rgba(153, 102, 255, 0.2)',
+                // 'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                // 'rgba(54, 162, 235, 1)',
+                // 'rgba(255, 206, 86, 1)',
+                // 'rgba(75, 192, 192, 1)',
+                // 'rgba(153, 102, 255, 1)',
+                // 'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }],
+
+        datasets: [{
+            label: '# of Votes',
+            data: viewData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -180,6 +204,7 @@ var myChart = new Chart(ctx, {
         }]
         
     },
+    
     options: {
         scales: {
             yAxes: [{
