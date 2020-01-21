@@ -4,6 +4,7 @@ var pictureParent = document.getElementById('pictures');
 var imageLeft = document.getElementById('picLeft');
 var imageCenter = document.getElementById('picCenter');
 var imageRight = document.getElementById('picRight');
+var currentPic = [];
 
 //Can't use zero since it's an index position.
 var leftIndex = null;
@@ -27,7 +28,8 @@ function AdImage(name, image){
 //get a random number function-----------------------------
 function randomPic(){
   //inclusive to 0 exclusive to length, so, it's ok
-  var randomNumber = Math.floor(Math.random() * AdImage.allImages.length);
+  do{ var randomNumber = Math.floor(Math.random() * AdImage.allImages.length);
+  } while(currentPic.includes(randomNumber))
   return randomNumber;
 }
 // closing comment - get a random number function-----------------------------
@@ -60,6 +62,8 @@ var handleClickOnImage = function(event){ //this an anonymous function attached 
         alert('You didn\'t select an image. ');
     } 
     
+    // currentPic = [leftIndex, rightIndex, centerIndex];
+    // console.log(currentPic);
     
     if(imageVote === 10){
             pictureParent.removeEventListener('click', handleClickOnImage);
@@ -95,6 +99,9 @@ function renderAdImages(){
         AdImage.allImages[leftIndex].views++;
         AdImage.allImages[rightIndex].views++;
         AdImage.allImages[centerIndex].views++;
+
+        currentPic = [leftIndex, rightIndex, centerIndex];
+        console.log(currentPic);
     }
 
 
