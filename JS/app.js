@@ -45,7 +45,7 @@ var handleClickOnImage = function(event){
         imageVote++;
         // need to increment imageVote by one
         if(imageClicked === 'picLeft'){
-        // do logic to incrament the number
+        // do logic to increment the number
         AdImage.allImages[leftIndex].clicked++;
         // console.log('left pic selected');
 
@@ -129,4 +129,3 @@ new AdImage('bag pic', "img/bag.jpg");
 renderAdImages();
 
 pictureParent.addEventListener('click', handleClickOnImage);
-

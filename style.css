@@ -1,12 +1,20 @@
+body {
+    width: 960px;
+    align-self: 0 auto;
+    background-color: aqua;
+}
+
 img {
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     display: inline-block;
 }
 
 h1 {
-    width: 400px;
+    /* width: 400px; */
     align-self: 0 auto;
+    text-align: center;
+    background-color: aliceblue;
 }
 
 ul {
