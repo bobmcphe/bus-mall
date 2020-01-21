@@ -60,6 +60,8 @@ var handleClickOnImage = function(event){ //this an anonymous function attached 
         alert('You didn\'t select an image. ');
     } 
     
+    console.log(AdImage.allImages[leftIndex]);
+    console.log(AdImage.allImages[rightIndex]);
     
     if(imageVote === 10){
             pictureParent.removeEventListener('click', handleClickOnImage);
@@ -97,27 +99,13 @@ function renderAdImages(){
         AdImage.allImages[centerIndex].views++;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Instantiations------------------------------------
 AdImage.allImages = [];
 
-new AdImage('banana-pic', "img/banana.jpg");
-new AdImage('bathroom-pic', "img/bathroom.jpg");
-new AdImage('boots-pic', "img/boots.jpg");
-new AdImage('breakfast-pic', "img/breakfast.jpg");
+new AdImage('banana pic', "img/banana.jpg");
+new AdImage('bathroom pic', "img/bathroom.jpg");
+new AdImage('boots pic', "img/boots.jpg");
+new AdImage('breakfast pic', "img/breakfast.jpg");
 new AdImage('bubblegum pic', "img/Bubblegum.jpg");
 new AdImage('wine-glass pic', "img/wine-glass.jpg");
 new AdImage('chair pic', "img/chair.jpg");
@@ -133,71 +121,10 @@ new AdImage('tauntaun pic', "img/tauntaun.jpg");
 new AdImage('unicorn pic', "img/unicorn.jpg");
 new AdImage('usb pic', "img/usb.gif");
 new AdImage('water-can pic', "img/water-can.jpg");
+
 new AdImage('bag pic', "img/bag.jpg");
 
-//==================================================
-//===================CHART===========================
-//===================================================
-var labelData = [];
-var chartData = [];
 
-var ctx = document.getElementById('whiteboard').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: labelData,
-        datasets: [{
-            label: '# of Votes',
-            data: chartData,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-        
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-    
-});
-
-
-//create click data and passes that into a chart.JS constructor
-var button = document.getElementById('button');
-button.addEventListener('click', renderChart);
-
-function renderChart() {
-
-  for (var i= 0; i< AdImage.allImages.length; i++){
-    labelData.push(AdImage.allImages[i].name);
-    chartData.push(AdImage.allImages[i].clicked);
-    
-      }
-      var ctx = document.getElementById('whiteboard').getContext('2d');
-    }
-
-
-//======================EXECUTABLE CODE=============================================
 renderAdImages();
 
 pictureParent.addEventListener('click', handleClickOnImage);
