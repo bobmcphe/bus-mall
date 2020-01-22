@@ -5,6 +5,7 @@ var imageLeft = document.getElementById('picLeft');
 var imageCenter = document.getElementById('picCenter');
 var imageRight = document.getElementById('picRight');
 var currentPic = [];
+var allPictureData = [];
 
 //Can't use zero since it's an index position.
 var leftIndex = null;
@@ -116,19 +117,23 @@ localStorage.setItem('practice-data', convertedData);
 }
 
 function getStoredDataAndPush(){
-    if(localStorage.length > 0){
-        console.log('inside getStoredData if loop');
+    // if(localStorage.length > 0){
     //retrieve data from localStorage
     //then convert - de-stringify with parse
     //then push to either chart or store object
 
     var retDataVariable = localStorage.getItem('practice-data');
     var deconvertedData = JSON.parse(retDataVariable);
-    console.log(deconvertedData);
-    AdImage.allImages.push(deconvertedData);
-}
-}
-
+  
+    // for(var i = 0; i < deconvertedData.length; i++){
+    //    new AdImage(deconvertedData[i].name, deconvertedData[i].image);
+    //    AdImage.allImages[i].clicked = deconvertedData[i].clicked;
+    //    AdImage.allImages[i].views = deconvertedData[i].views;
+       AdImage.allImages = deconvertedData;
+    }
+    
+// }
+// }
 
 
 
@@ -138,6 +143,7 @@ function getStoredDataAndPush(){
 // Instantiations------------------------------------------------
 AdImage.allImages = [];
 
+// if(localStorage < 1) {
 new AdImage('banana-pic', "img/banana.jpg");
 new AdImage('bathroom-pic', "img/bathroom.jpg");
 new AdImage('boots-pic', "img/boots.jpg");
@@ -158,6 +164,10 @@ new AdImage('unicorn pic', "img/unicorn.jpg");
 new AdImage('usb pic', "img/usb.gif");
 new AdImage('water-can pic', "img/water-can.jpg");
 new AdImage('bag pic', "img/bag.jpg");
+// }else{ 
+// getStoredDataAndPush();
+// }
+
 
 //==================================================
 //===================CHART===========================
@@ -173,8 +183,7 @@ function renderChart() {
     labelData.push(AdImage.allImages[i].name);
     clickData.push(AdImage.allImages[i].clicked);
     viewData.push(AdImage.allImages[i].views);
-    
-      }
+     }
     //   var ctx = document.getElementById('whiteboard').getContext('2d');
     
 
@@ -214,10 +223,12 @@ var myChart = new Chart(ctx, {
 });
 }
 
+
 //create click data and passes that into a chart.JS constructor
 var button = document.getElementById('button');
 button.addEventListener('click', renderChart);
 button.addEventListener('click', storeData);
+// button.addEventListener('click', updateChart);
 var ctx = document.getElementById('whiteboard').getContext('2d');
 
 
