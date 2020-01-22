@@ -29,7 +29,7 @@ function AdImage(name, image){
 function randomPic(){
   //inclusive to 0 exclusive to length, so, it's ok
   do{ var randomNumber = Math.floor(Math.random() * AdImage.allImages.length);
-  } while(currentPic.includes(randomNumber))
+  } while(currentPic.includes(randomNumber)) //got major help from Anthony on this.
   return randomNumber;
 }
 // closing comment - get a random number function-----------------------------
@@ -101,24 +101,41 @@ function renderAdImages(){
         AdImage.allImages[centerIndex].views++;
 
         currentPic = [leftIndex, rightIndex, centerIndex];
-        console.log(currentPic);
+        //console.log(currentPic);
     }
 
 
 
+//===================LOCAL STORAGE============================
+
+
+function storeData(){
+var convertedData = JSON.stringify(AdImage.allImages);
+localStorage.setItem('practice-data', convertedData);
+// console.log(convertedData)
+}
+
+function getStoredDataAndPush(){
+    if(localStorage.length > 0){
+        console.log('inside getStoredData if loop');
+    //retrieve data from localStorage
+    //then convert - de-stringify with parse
+    //then push to either chart or store object
+
+    var retDataVariable = localStorage.getItem('practice-data');
+    var deconvertedData = JSON.parse(retDataVariable);
+    console.log(deconvertedData);
+    AdImage.allImages.push(deconvertedData);
+}
+}
 
 
 
 
 
+//===============================================================
 
-
-
-
-
-
-
-// Instantiations------------------------------------
+// Instantiations------------------------------------------------
 AdImage.allImages = [];
 
 new AdImage('banana-pic', "img/banana.jpg");
@@ -162,7 +179,7 @@ function renderChart() {
     
 
 var ctx = document.getElementById('whiteboard').getContext('2d');
-console.log(clickData, viewData);
+// console.log(clickData, viewData);
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -200,6 +217,7 @@ var myChart = new Chart(ctx, {
 //create click data and passes that into a chart.JS constructor
 var button = document.getElementById('button');
 button.addEventListener('click', renderChart);
+button.addEventListener('click', storeData);
 var ctx = document.getElementById('whiteboard').getContext('2d');
 
 
@@ -207,5 +225,5 @@ var ctx = document.getElementById('whiteboard').getContext('2d');
 
 //======================EXECUTABLE CODE=============================================
 renderAdImages();
-
+getStoredDataAndPush();
 pictureParent.addEventListener('click', handleClickOnImage);
