@@ -13,7 +13,7 @@ var rightIndex = null;
 var centerIndex = null;
 
 var imageVote = 0;
-var totalRounds = 5;
+// var totalRounds = 5;
 
 //My constructor function--------------------------------------------------------
 function AdImage(name, image){
@@ -66,7 +66,7 @@ var handleClickOnImage = function(event){ //this an anonymous function attached 
     // currentPic = [leftIndex, rightIndex, centerIndex];
     // console.log(currentPic);
     
-    if(imageVote === 10){
+    if(imageVote === 25){
             pictureParent.removeEventListener('click', handleClickOnImage);
             //console.log("you completed the voting")
             // output to the browser the results
