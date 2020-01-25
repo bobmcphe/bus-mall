@@ -125,7 +125,7 @@ function getStoredDataAndPush(){
     var retDataVariable = localStorage.getItem('practice-data');
     var deconvertedData = JSON.parse(retDataVariable);
     console.log(deconvertedData);
-    AdImage.allImages.push(deconvertedData);
+    AdImage.allImages = deconvertedData;
 }
 }
 
