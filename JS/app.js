@@ -14,10 +14,6 @@ var leftIndex = 0;
 var rightIndex = 0;
 var centerIndex = 0;
 
-if(localStorage.getItem('practice-data')){
-    getStoredDataAndPush();
-}
-
 var imageVote = 0;
 // var totalRounds = 5;
 
@@ -30,7 +26,9 @@ function AdImage(name, image){
 
   AdImage.allProducts.push(this); 
 }
-
+if(localStorage.getItem('practice-data')){
+    getStoredDataAndPush();
+} else {
 new AdImage('banana', "img/banana.jpg");
 new AdImage('bathroom', "img/bathroom.jpg");
 new AdImage('boots', "img/boots.jpg");
@@ -51,7 +49,7 @@ new AdImage('unicorn', "img/unicorn.jpg");
 new AdImage('usb', "img/usb.gif");
 new AdImage('water-can', "img/water-can.jpg");
 new AdImage('bag', "img/bag.jpg");
-
+}    
 
 //get a random number function-----------------------------
 function randomPic(){
