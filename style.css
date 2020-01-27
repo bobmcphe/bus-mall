@@ -5,7 +5,7 @@
 
 body {
     width: 960px;
-    align: 0 auto;
+    margin: 0 auto;
     background-color: #100007;
 }
 
@@ -136,16 +136,16 @@ button {
 /* body {
     width: 960px;
     align-self: 0 auto;
-    background-color: white;
+    background-color: paleturquoise;
 }
 
 img {
     height: 150px;
     width: 150px;
     display: inline-block;
-    border: 2px solid brown;
+    /* border: 2px solid brown; */
     
-}
+/* } */
 
 h1 {
     width: 400px;
@@ -156,17 +156,14 @@ h1 {
 
 }
 
-ul {
-    float: left;
-    border: 3px solid pink;
-}
 
 #pictures {
     width: 960px;
     margin: 0 auto;
     border: 3px solid blue;
     padding: 50px;
-    background-color: brown;
+    background-color: rgb(89, 42, 165);
+    padding-right: 0px;
 }
 
 #picLeft {
@@ -178,15 +175,28 @@ img:first-child {
 }
 
 section {
-         margin: auto;
+        margin: auto;
         width: 75%;
-        border: 3px solid green;
+        /* border: 3px solid green; */
         padding: 10px;
 }
 
 p {
     font-size: 24px;
     margin: auto;
-    width: 75px;
+    width: 400px;
+    border: 1px solid black;
 }
- */
+
+#canvas {
+    width: 960px;
+    margin: 0 auto;
+}
+
+button {
+    width: 300px;
+    margin: 0 auto;
+    font-size: 18px;
+    background-color: powderblue;
+    border-radius: 5px;
+}
