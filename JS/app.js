@@ -65,7 +65,7 @@ var handleClickOnImage = function(event){ //this an anonymous function attached 
     // currentPic = [leftIndex, rightIndex, centerIndex];
     // console.log(currentPic);
     
-    if(imageVote === 10){
+    if(imageVote === 25){
             pictureParent.removeEventListener('click', handleClickOnImage);
             //console.log("you completed the voting")
             // output to the browser the results
