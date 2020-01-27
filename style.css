@@ -1,16 +1,151 @@
+/* * {
+    border: 1px solid black;
+   
+} */
+
 body {
     width: 960px;
-    align-self: 0 auto;
-    background-color: white;
+    margin: 0 auto;
+    background-color: #100007;
+}
+
+header{
+    background-color: #2D0605;
+    border-radius: 5px;
+    height: 100px;
+    margin-top: 0px;
 }
 
 img {
     height: 150px;
     width: 150px;
     display: inline-block;
-    border: 2px solid brown;
+    border: 3px solid #2D0605;
     
 }
+
+h1 {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #4C0827;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+
+}
+
+#pictures {
+    width: 85%;
+    margin: 0 auto;
+    border: 3px solid #2D0605;
+    padding: 50px;
+    background-color: #4C0827;
+    border-radius: 5px;
+   
+}
+
+#picLeft {
+    margin-left: 100px;
+    border-radius: 5px;
+}
+
+#picCenter {
+    border-radius: 5px;
+}
+
+#picRight{
+    border-radius: 5px;
+}
+
+img:first-child {
+    margin-left: 600px;
+}
+
+section {
+        margin: auto;
+        width: 75%;
+        border: 3px solid #4C0827;
+        border-radius: 10px;
+        padding: 10px;
+}
+
+p {
+    font-size: 24px;
+    margin: auto;
+    width: 475px;
+    /* border: 1px solid black; */
+    padding: 15px;
+    
+}
+
+canvas {
+    width: 960px;
+    /* border: 1px solid black; */
+    margin: auto;
+    border-radius: 5px;
+    
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 200px;
+    margin-left: 35%;
+}
+
+#content{
+    width: 960px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body {
+    width: 960px;
+    align-self: 0 auto;
+    background-color: paleturquoise;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    /* border: 2px solid brown; */
+    
+/* } */
 
 h1 {
     width: 400px;
@@ -21,17 +156,14 @@ h1 {
 
 }
 
-ul {
-    float: left;
-    border: 3px solid pink;
-}
 
 #pictures {
     width: 960px;
     margin: 0 auto;
     border: 3px solid blue;
     padding: 50px;
-    background-color: brown;
+    background-color: rgb(89, 42, 165);
+    padding-right: 0px;
 }
 
 #picLeft {
@@ -43,15 +175,28 @@ img:first-child {
 }
 
 section {
-         margin: auto;
+        margin: auto;
         width: 75%;
-        border: 3px solid green;
+        /* border: 3px solid green; */
         padding: 10px;
 }
 
 p {
     font-size: 24px;
     margin: auto;
-    width: 75px;
+    width: 400px;
+    border: 1px solid black;
 }
 
+#canvas {
+    width: 960px;
+    margin: 0 auto;
+}
+
+button {
+    width: 300px;
+    margin: 0 auto;
+    font-size: 18px;
+    background-color: powderblue;
+    border-radius: 5px;
+}
