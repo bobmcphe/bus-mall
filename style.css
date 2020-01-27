@@ -31,12 +31,12 @@ h1 {
     padding-right: 0px;
 }
 
-#picLeft {
+/* #picLeft {
     margin-left: 100px;
-}
+} */
 
 img:first-child {
-    margin-left: 600px;
+    margin-left: 75px;
 }
 
 section {
